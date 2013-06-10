@@ -7,6 +7,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+import javax.sql.DataSource;
+
 import com.springservlet.dao.CustomerDAO;
 import com.springservlet.models.Customer;
 import com.springservlet.mysql.MySqlConnectionFactory;
@@ -124,5 +126,6 @@ public class CustomerDAOImpl implements CustomerDAO {
 		}
 		return true;
 	}
+
 
 }

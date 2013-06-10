@@ -104,6 +104,7 @@ public class Customer {
 	public void setUsername(String username) {
 		this.username = username;
 	}
+	
 
 	@Override
 	public int hashCode() {

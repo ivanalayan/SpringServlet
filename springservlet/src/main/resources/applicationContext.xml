@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans.xsd 
+	http://www.springframework.org/schema/context 
+	http://www.springframework.org/schema/context/spring-context.xsd">
+
 
 	<bean
 		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
@@ -11,23 +15,35 @@
 	</bean>
 
 
-	<bean id="CustomerService" class="com.springservlet.service.impl.CustomerServicesImpl">
-		<property name="customerDAO">
-			<bean class="com.springservlet.dao.impl.CustomerDAOImpl">
-				<property name="connection">
-					<bean class="com.springservlet.mysql.MySqlConnectionFactory">
-						<property name="prop">
-							<bean class="com.springservlet.models.ConnectionProperties">
-								<property name="user" value="${com.jdbc.user}"></property>
-								<property name="password" value="${com.jdbc.password}"></property>
-								<property name="url" value="${com.jdbc.url}"></property>
-							</bean>
-						</property>
-					</bean>
-				</property>
-			</bean>
-		</property>
+	<context:component-scan base-package="com.springservlet"></context:component-scan>
+	<context:annotation-config></context:annotation-config>
+
+
+	<!-- <bean id="CustomerService" class="com.springservlet.service.impl.CustomerServicesImpl"> -->
+	<!-- <property name="customerDAO"> -->
+	<!-- <bean class="com.springservlet.dao.impl.CustomerDAOImpl"> -->
+	<!-- <property name="connection"> -->
+	<!-- <bean class="com.springservlet.mysql.MySqlConnectionFactory"> -->
+	<!-- <property name="prop"> -->
+	<!-- <bean class="com.springservlet.models.ConnectionProperties"> -->
+	<!-- <property name="user" value="${com.jdbc.user}"></property> -->
+	<!-- <property name="password" value="${com.jdbc.password}"></property> -->
+	<!-- <property name="url" value="${com.jdbc.url}"></property> -->
+	<!-- </bean> -->
+	<!-- </property> -->
+	<!-- </bean> -->
+	<!-- </property> -->
+	<!-- </bean> -->
+	<!-- </property> -->
+	<!-- </bean> -->
+
+	<bean id="datasrc"
+		class="org.springframework.jdbc.datasource.SingleConnectionDataSource">
+		<property name="driverClassName" value="${com.jdbc.driver}"></property>
+		<property name="username" value="${com.jdbc.user}"></property>
+		<property name="password" value="${com.jdbc.password}"></property>
+		<property name="url" value="${com.jdbc.url}"></property>
 	</bean>
-	
-	
+
+
 </beans>
