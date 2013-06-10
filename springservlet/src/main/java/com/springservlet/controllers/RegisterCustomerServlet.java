@@ -12,13 +12,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
-
 import com.springservlet.exceptions.UsernameAlreadyExistException;
 import com.springservlet.models.Customer;
 import com.springservlet.service.CustomerService;
-import com.springservlet.service.impl.CustomerServicesImpl;
 
 public class RegisterCustomerServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;

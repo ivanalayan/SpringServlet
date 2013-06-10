@@ -20,6 +20,7 @@ public class ServletListener implements ServletContextListener{
 	@Override
 	public void contextInitialized(ServletContextEvent arg0) {
 		// TODO Auto-generated method stub
+		@SuppressWarnings("resource")
 		ApplicationContext context = new ClassPathXmlApplicationContext(
 				"applicationContext.xml");
 		CustomerService customerService = context.getBean("CustomerService",CustomerService.class);

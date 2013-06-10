@@ -15,6 +15,7 @@ public class CustomerDAOImpl implements CustomerDAO {
 
 	private MySqlConnectionFactory connection;
 
+	@SuppressWarnings("deprecation")
 	@Override
 	public int addCustomer(Customer customer) {
 		try {
